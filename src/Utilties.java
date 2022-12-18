@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.PrimitiveIterator.OfDouble;
 
 /**
  * 
@@ -20,7 +21,7 @@ public class Utilties {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] arr = new int[] {1, 12, 8, 400,  10, 1001, 6, 87, 300};
+		int[] arr = new int[] {17, 4, 5, 7, 8};
 		int[] output = findLargestNumberArray(arr);
 		System.out.println("max: "+ output[0]);
 		System.out.println("second: "+ output[1]);
@@ -32,22 +33,26 @@ public class Utilties {
 		int secondMax =  arr[0];
 		int thirdMax = arr[0];
 		for (int i = 1; i < arr.length; i++) {
-			if (max < arr[i]) {
+			if (max > arr[i]) {
+				if (secondMax > arr[i] && secondMax != max) {
+					if (thirdMax > arr[i] && thirdMax != secondMax) {
+						continue;
+					} else {
+						// assign
+						thirdMax = arr[i];
+					}
+				} else {
+					// swap
+					thirdMax = secondMax;
+					secondMax = arr[i];
+				}		
+			} else {
+				// swap
+				secondMax = max;
 				max = arr[i];
 			}
 		}
-		
-		for (int i = 1; i < arr.length; i++) {
-			if (arr[i] < max && secondMax < arr[i]) {
-				secondMax = arr[i];
-			}
-		}
-		
-		for (int i = 1; i < arr.length; i++) {
-			if (arr[i] < max && arr[i] < secondMax && thirdMax < arr[i]) {
-				thirdMax = arr[i];
-			}
-		}
+	
 		
 		return new int[] {max, secondMax, thirdMax};
 	}
