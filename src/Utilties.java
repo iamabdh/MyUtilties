@@ -21,7 +21,7 @@ public class Utilties {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] arr = new int[] {17, 4, 5, 7, 8};
+		int[] arr = new int[] {2, 4, 6, 8, 1,  19};
 		int[] output = findLargestNumberArray(arr);
 		System.out.println("max: "+ output[0]);
 		System.out.println("second: "+ output[1]);
@@ -35,7 +35,7 @@ public class Utilties {
 		for (int i = 1; i < arr.length; i++) {
 			if (max > arr[i]) {
 				if (secondMax > arr[i] && secondMax != max) {
-					if (thirdMax > arr[i] && thirdMax != secondMax) {
+					if (thirdMax > arr[i] && thirdMax != max) {
 						continue;
 					} else {
 						// assign
