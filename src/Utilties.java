@@ -1,4 +1,3 @@
-import java.awt.im.InputMethodHighlight;
 import java.lang.reflect.Array;
 import java.security.Identity;
 import java.util.ArrayList;
@@ -15,45 +14,64 @@ import java.util.PrimitiveIterator.OfDouble;
  * @author LAP-4
  *
  */
+
 public class Utilties {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] arr = new int[] {2, 4, 6, 8, 1,  19};
-		int[] output = findLargestNumberArray(arr);
-		System.out.println("max: "+ output[0]);
-		System.out.println("second: "+ output[1]);
-		System.out.println("third: "+ output[2]);
+		int[] arr = new int[] {50, 12, 8, 0, 1, 10, 30, 10};
+		ArrayList<Character> arr1 = new ArrayList<>();
+		arr1.add('e');
+		arr1.add('e');
+		arr1.add('f');
+		arr1.add('g');
+		arr1.add('w');
+		arr1.add('w');
+		arr1.add('g');
+		arr1.add('f');
+		arr1.add('t');
+		arr1.add('r');
+		arr1.add('a');
+		SelectionSort xSelectionSort = new SelectionSort();
+		SelectionSort.BubbleSort(arr);
+		printArray(arr);
+		
+		System.out.println(xSelectionSort.UniqueAlphapetHashMap(arr1));
+		
+	}
+	
+	public static void printArray(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
 	}
 	
 	public static int[] findLargestNumberArray(int[] arr) {
-		int max = arr[0];
-		int secondMax =  arr[0];
-		int thirdMax = arr[0];
-		for (int i = 1; i < arr.length; i++) {
+		int max = -1;
+		int secondMax =  -1;
+		int thirdMax = -1;
+		for (int i = 0; i < arr.length; i++) {
 			if (max > arr[i]) {
-				if (secondMax > arr[i] && secondMax != max) {
-					if (thirdMax > arr[i] && thirdMax != max) {
+				if (secondMax > arr[i]) {
+					if (thirdMax > arr[i]) {
 						continue;
 					} else {
-						// assign
 						thirdMax = arr[i];
 					}
 				} else {
-					// swap
 					thirdMax = secondMax;
 					secondMax = arr[i];
-				}		
+				}
 			} else {
-				// swap
+				thirdMax = secondMax;
 				secondMax = max;
 				max = arr[i];
 			}
 		}
-	
-		
+
 		return new int[] {max, secondMax, thirdMax};
 	}
 
