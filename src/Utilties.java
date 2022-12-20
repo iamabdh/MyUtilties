@@ -21,24 +21,24 @@ public class Utilties {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] arr = new int[] {50, 12, 8, 0, 1, 10, 30, 10};
-		ArrayList<Character> arr1 = new ArrayList<>();
-		arr1.add('e');
-		arr1.add('e');
-		arr1.add('f');
-		arr1.add('g');
-		arr1.add('w');
-		arr1.add('w');
-		arr1.add('g');
-		arr1.add('f');
-		arr1.add('t');
-		arr1.add('r');
-		arr1.add('a');
+		int[] arr = new int[] {2, 3, 1, 8, 4, 5, 0, 2};
+//		ArrayList<Character> arr1 = new ArrayList<>();
+//		arr1.add('e');
+//		arr1.add('e');
+//		arr1.add('f');
+//		arr1.add('g');
+//		arr1.add('w');
+//		arr1.add('w');
+//		arr1.add('g');
+//		arr1.add('f');
+//		arr1.add('t');
+//		arr1.add('r');
+//		arr1.add('a');
 		SelectionSort xSelectionSort = new SelectionSort();
-		SelectionSort.BubbleSort(arr);
-		printArray(arr);
+//		SelectionSort.BubbleSort(arr);
+//		printArray(arr);
 		
-		System.out.println(xSelectionSort.UniqueAlphapetHashMap(arr1));
+		System.out.println(xSelectionSort.TargetNumber(arr, 5));
 		
 	}
 	

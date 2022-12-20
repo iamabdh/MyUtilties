@@ -81,5 +81,28 @@ public class SelectionSort {
 		}
 	}
 	
+	public static ArrayList<ArrayList<Integer>> TargetNumber(int[] arr, int target) {
+		ArrayList<ArrayList<Integer>> resultPairTargerArrayList = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> usedIndexArrayList = new ArrayList<>();
+		for (int i = 0; i < arr.length; i ++) {
+			for (int j = i + 1; j < arr.length; j ++) {
+				if (arr[i] + arr[j] == target && !usedIndexArrayList.contains(i) && !usedIndexArrayList.contains(j)) {
+					ArrayList<Integer> newArrayList = new ArrayList<Integer>();
+					newArrayList.add(arr[i]);
+					newArrayList.add(arr[j]);
+					resultPairTargerArrayList.add(newArrayList);
+					usedIndexArrayList.add(i);
+					usedIndexArrayList.add(j);
+				}
+			}
+		}
+		return resultPairTargerArrayList;
+	}
+	
+	
+//	public static ArrayList<ArrayList<Integer>> TargetNumberHashMap(int[] arr, int target) {
+//		HashMap<Integer, Integer> resultPairTargemHashMap = new HashMap<>();
+////		for (int i  = 0; i < arr.length; i++)
+//	}
 }
 
