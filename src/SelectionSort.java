@@ -100,9 +100,27 @@ public class SelectionSort {
 	}
 	
 	
-//	public static ArrayList<ArrayList<Integer>> TargetNumberHashMap(int[] arr, int target) {
-//		HashMap<Integer, Integer> resultPairTargemHashMap = new HashMap<>();
-////		for (int i  = 0; i < arr.length; i++)
-//	}
+	public static ArrayList<Integer> TargetNumberHashMap(int[] arr, int target) {
+		HashMap<ArrayList<Integer>, Integer> resultPairTargemHashMap = new HashMap<>();
+		for (int i  = 0; i < arr.length; i++) {
+			for (int j = i +1; j < arr.length; j++) {
+				if (arr[i] + arr[j] == target) {
+					System.out.println(arr[i] + arr[j]);
+					ArrayList<Integer> newArrayList = new ArrayList<Integer>();
+					if (arr[i] < arr[j]) {
+						newArrayList.add(arr[i]);
+						newArrayList.add(arr[j]);
+					} else {
+						newArrayList.add(arr[j]);
+						newArrayList.add(arr[i]);	
+					}
+					
+					resultPairTargemHashMap.put(newArrayList, 0);
+				}
+			}
+		}	
+
+		return new ArrayList<Integer>((Set)resultPairTargemHashMap.keySet());
+	}
 }
 

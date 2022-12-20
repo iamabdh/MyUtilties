@@ -38,7 +38,7 @@ public class Utilties {
 //		SelectionSort.BubbleSort(arr);
 //		printArray(arr);
 		
-		System.out.println(xSelectionSort.TargetNumber(arr, 5));
+		System.out.println(xSelectionSort.TargetNumberHashMap(arr, 5));
 		
 	}
 	
