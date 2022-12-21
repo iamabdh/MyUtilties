@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.concurrent.CountDownLatch;
 
 public class SelectionSort {
 	
@@ -102,6 +103,7 @@ public class SelectionSort {
 	
 	public static ArrayList<Integer> TargetNumberHashMap(int[] arr, int target) {
 		HashMap<ArrayList<Integer>, Integer> resultPairTargemHashMap = new HashMap<>();
+		ArrayList<ArrayList<Integer>> pairedArrayList = new ArrayList<ArrayList<Integer>>();
 		for (int i  = 0; i < arr.length; i++) {
 			for (int j = i +1; j < arr.length; j++) {
 				if (arr[i] + arr[j] == target) {
@@ -121,6 +123,50 @@ public class SelectionSort {
 		}	
 
 		return new ArrayList<Integer>((Set)resultPairTargemHashMap.keySet());
+	}
+	
+	public static ArrayList<Integer> TargetNumberHashMapOneLoop(int arr[], int target) {
+		HashMap<ArrayList<Integer>, Integer> resultPairTargemHashMap = new HashMap<>();
+		int j = 0;
+		for (int i = j + 1; i < arr.length; i++) {
+			if (target - arr[i] == arr[j]) {
+				ArrayList<Integer> newArrayList = new ArrayList<Integer>();
+				if (arr[i] < arr[j]) {
+					newArrayList.add(arr[i]);
+					newArrayList.add(arr[j]);
+				} else {
+					newArrayList.add(arr[j]);
+					newArrayList.add(arr[i]);	
+				}
+				
+				resultPairTargemHashMap.put(newArrayList, 0);
+				++j;
+				i = j + 1;
+			} else if (i == arr.length - 1) {
+				++j;
+				i = j + 1;
+			}
+		}		
+		return new ArrayList<Integer>((Set)resultPairTargemHashMap.keySet());
+	}
+	
+	public static ArrayList<ArrayList<Integer>> TargetNumberHashMapOneLoopAnotherSol(int arr[], int target) {
+		HashMap<Integer, Boolean> resultPairTargemHashMap = new HashMap<>();
+		ArrayList<ArrayList<Integer>> pairedArrayList = new ArrayList<ArrayList<Integer>>();
+		for (int i = 0; i < arr.length; i++) {
+			if (resultPairTargemHashMap.containsKey(target - arr[i]) && !resultPairTargemHashMap.get(target - arr[i])) {
+				resultPairTargemHashMap.put(target - arr[i], true);
+				resultPairTargemHashMap.put(arr[i], true);
+				ArrayList<Integer> newArrayList = new ArrayList<Integer>();
+				newArrayList.add(target - arr[i]);
+				newArrayList.add(arr[i]);
+				pairedArrayList.add(newArrayList);
+				
+			} else {
+				resultPairTargemHashMap.put(arr[i], false);
+			}
+		}
+		return pairedArrayList;
 	}
 }
 
