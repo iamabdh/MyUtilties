@@ -1,7 +1,11 @@
+import java.nio.channels.InterruptedByTimeoutException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
+
+import javax.naming.spi.DirStateFactory.Result;
+import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 public class SelectionSort {
 	
@@ -168,5 +172,109 @@ public class SelectionSort {
 		}
 		return pairedArrayList;
 	}
+	
+	public static ArrayList<ArrayList<Integer>> TargetNumberHashOneLoopAnotherSolSol(int arr[], int target) {
+		HashMap<Integer, Integer> resultPairTargemHashMap = new HashMap<>();
+		ArrayList<ArrayList<Integer>> pairedArrayList = new ArrayList<ArrayList<Integer>>();
+		
+		for (int i = 0; i < arr.length; i++) {
+			int pairPart = target - arr[i];
+			if (resultPairTargemHashMap.containsKey(pairPart) && resultPairTargemHashMap.get(pairPart) >= 1) {
+				int count = resultPairTargemHashMap.get(pairPart) - 1;
+				resultPairTargemHashMap.put(arr[i], count);
+				System.out.println(arr[i] + " - " + pairPart);
+			} else if (resultPairTargemHashMap.containsKey(arr[i])) {
+				int count = resultPairTargemHashMap.get(arr[i]) + 1;
+				resultPairTargemHashMap.put(arr[i], count);
+			} else {
+				resultPairTargemHashMap.put(arr[i], 1);
+			}
+			System.out.println(resultPairTargemHashMap);
+		}
+		System.out.println(resultPairTargemHashMap);
+		
+		return pairedArrayList;
+	}
+	
+	
+	public static HashMap<String, ArrayList<Integer>> OddEvenNumber (int[] arr) {
+		HashMap<String, ArrayList<Integer>> oddEvenNumberResultHashMap = new HashMap<>();
+		oddEvenNumberResultHashMap.put("even", new ArrayList<Integer>());
+		oddEvenNumberResultHashMap.put("odd", new ArrayList<Integer>());
+		for (int i = 0; i < arr.length; i ++) {
+			if (arr[i] % 2 == 0) {
+				ArrayList<Integer> oddEvenResultArrayList = oddEvenNumberResultHashMap.get("even");
+				oddEvenResultArrayList.add(arr[i]);
+				oddEvenNumberResultHashMap.put("even", oddEvenResultArrayList);
+			} else {
+				ArrayList<Integer> oddEvenResultArrayList = oddEvenNumberResultHashMap.get("odd");
+				oddEvenResultArrayList.add(arr[i]);
+				oddEvenNumberResultHashMap.put("odd", oddEvenResultArrayList);
+			}
+		}
+		return oddEvenNumberResultHashMap;
+	}
+	
+	
+	public static int POW(int a, int b) {
+		int g = a;
+		if (b == 0) {
+			a = 1;
+		} else  {
+			for (int i  = 1; i < b; i ++) {
+				a *= g;
+			}
+		}
+		return a;
+	}
+	
+	public static String reverseString(String str) {
+		ArrayList<Character> strCharsArrayList = new ArrayList<>();
+		String newString = new String();
+		for (int i = str.length() - 1; i >= 0; i--) {
+			strCharsArrayList.add(str.charAt(i));
+		}
+		
+		for (int i = 0; i < strCharsArrayList.size(); i ++) {
+			newString += strCharsArrayList.get(i);
+		}
+		
+		return newString;
+	}
+	
+	public static int factorial(int num) {
+		int n = 1;
+		if (num == 0) {
+			n = 0;
+		} else {
+			for (int i = 1; i <= num; i++) {
+				n *=i;
+			}
+		}
+		return n;
+	}
+	
+	public static boolean plaindrom(String str) {
+		
+		int maxIndex = (int)Math.floor(str.length()/2);
+		boolean is = true;
+		int i = 0;
+		while(i < maxIndex) {
+			if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
+				is = false;
+			}
+			i ++;
+		}
+		return is;
+	}
 }
+
+
+
+
+
+
+
+
+
 

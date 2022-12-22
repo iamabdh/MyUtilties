@@ -21,7 +21,7 @@ public class Utilties {
 	 * @param args
 	 */
 	public static void main(String[] args) { 
-		int[] arr = new int[] {6, 7, 4, 3, 6, 4};
+		int[] arr = new int[] {6, 6, 6, 4, 4, 4, 1, 5};
 //		ArrayList<Character> arr1 = new ArrayList<>();
 //		arr1.add('e');
 //		arr1.add('e');
@@ -38,7 +38,7 @@ public class Utilties {
 //		SelectionSort.BubbleSort(arr);
 //		printArray(arr);
 		
-		System.out.println(xSelectionSort.TargetNumberHashMapOneLoopAnotherSol(arr, 10));
+		System.out.println(xSelectionSort.plaindrom("maaam"));
 		
 	}
 	
