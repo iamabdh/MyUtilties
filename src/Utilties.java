@@ -21,25 +21,8 @@ public class Utilties {
 	 * @param args
 	 */
 	public static void main(String[] args) { 
-		int[] arr = new int[] {6, 6, 6, 4, 4, 4, 1, 5};
-//		ArrayList<Character> arr1 = new ArrayList<>();
-//		arr1.add('e');
-//		arr1.add('e');
-//		arr1.add('f');
-//		arr1.add('g');
-//		arr1.add('w');
-//		arr1.add('w');
-//		arr1.add('g');
-//		arr1.add('f');
-//		arr1.add('t');
-//		arr1.add('r');
-//		arr1.add('a');
-		SelectionSort xSelectionSort = new SelectionSort();
-//		SelectionSort.BubbleSort(arr);
-//		printArray(arr);
-		RecursiveUtil rUtil  = new RecursiveUtil();
-		System.out.println(rUtil.fab(2));
-		
+		StackUtils neStackUtils = new StackUtils();
+		System.out.println(neStackUtils.reverseStringWithString("s ldjksh"));
 	}
 	
 	public static void printArray(int[] arr) {

@@ -1,3 +1,4 @@
+import java.io.ObjectInputFilter;
 import java.nio.file.attribute.FileAttributeView;
 import java.util.ArrayList;
 
@@ -51,7 +52,15 @@ class RecursiveUtil {
 		else {
 			x = fab(num - 1) + fab(num - 2);
 		}
-		System.out.println(x);
+		System.out.print(x + " ");
 		return x;
+	}
+	
+	public static String fibPrint(int num, String xString) {
+		if (num <= 0) {
+			return "";
+		}
+		xString = fab(num - 1) + " ";
+		return fibPrint(num - 1, xString) + xString;
 	}
 }
