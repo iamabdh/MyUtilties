@@ -256,10 +256,10 @@ public class SelectionSort {
 	
 	public static boolean plaindrom(String str) {
 		
-		int maxIndex = (int)Math.floor(str.length()/2);
+		int middleIndex = (int)Math.floor(str.length()/2);
 		boolean is = true;
 		int i = 0;
-		while(i < maxIndex) {
+		while(i < middleIndex) {
 			if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
 				is = false;
 			}
@@ -272,7 +272,7 @@ public class SelectionSort {
 
 
 
-
+ 
 
 
 

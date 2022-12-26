@@ -37,8 +37,8 @@ public class Utilties {
 		SelectionSort xSelectionSort = new SelectionSort();
 //		SelectionSort.BubbleSort(arr);
 //		printArray(arr);
-		
-		System.out.println(xSelectionSort.plaindrom("maaam"));
+		RecursiveUtil rUtil  = new RecursiveUtil();
+		System.out.println(rUtil.fab(2));
 		
 	}
 	
