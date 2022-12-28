@@ -22,7 +22,7 @@ public class Utilties {
 	 */
 	public static void main(String[] args) { 
 		StackUtils neStackUtils = new StackUtils();
-		System.out.println(neStackUtils.reverseStackWithStack("s ldjksh"));
+		neStackUtils.splitSentenceWithout("iss am abdh");
 	}
 	
 	public static void printArray(int[] arr) {
