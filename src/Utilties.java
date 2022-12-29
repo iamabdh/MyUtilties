@@ -20,9 +20,9 @@ public class Utilties {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) { 
-		StackUtils neStackUtils = new StackUtils();
-		neStackUtils.splitSentenceWithout("iss am abdh");
+	public static void main(String[] args) {
+		HashSetImpl hs = new HashSetImpl();
+		hs.findUnionWithoutHashSet();;
 	}
 	
 	public static void printArray(int[] arr) {
